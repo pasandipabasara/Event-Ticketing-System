@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Meta information and character encoding -->
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    
+    <!-- Header Section -->
+    <header class="header">
+      <!-- Container for the ticket logo -->
+      <div class="ticket-logo-container">
+        <!-- Image of the ticket logo -->
+        <img src="src/images/ticket.png" alt="Ticket Logo" class="ticket-logo" />
+      </div>  
+    </header>
+
+    <!-- Root container where React will render the application -->
+    <div id="root"></div>
+
+    <!-- Form for Booking Tickets -->
+    <div class="booking-form">
+      <h2>Book Your Tickets</h2>
+      <!-- Form with id 'booking-form' to collect customer name and number of tickets -->
+      <form id="booking-form">
+        <!-- Label and input field for customer name -->
+        <label for="customer-name">Customer Name:</label>
+        <input type="text" id="customer-name" placeholder="Enter your name" required />
+        
+        <!-- Label and input field for the number of tickets -->
+        <label for="num-tickets">Number of Tickets:</label>
+        <input type="number" id="num-tickets" min="1" placeholder="Enter number of tickets" required />
+        
+        <!-- Submit button to book tickets -->
+        <button type="submit">Book Tickets</button>
+      </form>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <!-- Footer text for copyright information -->
+      <p>&copy; 2024 Pasandi Pabasara. All rights reserved.</p>
+    </footer>
+
+    <!-- Link to the React script (main.jsx) -->
+    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- JavaScript for handling form submission -->
+    <script>
+      // Add an event listener to the form for when it is submitted
+      document.getElementById("booking-form").addEventListener("submit", function(event) {
+        // Prevent the form from reloading the page on submission
+        event.preventDefault(); 
+        
+        // Retrieve the values entered by the user
+        const customerName = document.getElementById("customer-name").value;
+        const numTickets = document.getElementById("num-tickets").value;
+        
+        // Check if both fields are filled
+        if (customerName && numTickets) {
+          // Display an alert confirming the booking with customer details
+          alert(`Booking Confirmed!\nCustomer: ${customerName}\nTickets: ${numTickets}`);
+          // You can add further logic here to send this data to a server or update the UI
+        } else {
+          // Alert the user to fill in both fields if any are missing
+          alert("Please fill in both fields.");
+        }
+      });
+    </script>
+
+  </body>
+</html>
